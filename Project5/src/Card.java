@@ -65,15 +65,16 @@ public class Card implements Comparable<Card> {
     // Jack of Hearts - “h11”
     // Ace of Spades - “s14”
 
-    public Card(int value, int i) {
+    public Card(int value, char suit)  {
         if (value < LOWEST_VALUE || value > HIGHEST_VALUE) {
             throw new IllegalArgumentException("Invalid value");
         }
-        if (i != CLUBS && i != DIAMONDS && i != SPADES && i != HEARTS) {
-            throw new IllegalArgumentException("Invalid suit");
+        if (suit != CLUBS && suit != DIAMONDS && suit != SPADES && suit != HEARTS) {
+            throw new IllegalArgumentException(String.format("Invalid mom %s.", suit));
         }
+
         this.value = value;
-        this.suit = i;
+        this.suit = suit;
     }
 
     public int getValue() {

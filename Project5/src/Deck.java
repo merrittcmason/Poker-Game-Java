@@ -9,17 +9,19 @@ public class Deck {
     private int next;
     private int seed;
 
-    //This is the constructor of the Deck class. You must first initialize your array of Card objects to hold 52 cards using your class constant CARDS_IN_DECK. After your array is initialized, you must go through the array one element at a time and actually create a Card object. All cards must be created (values 2-14 for each of the four suits), and there must not be any duplicates. The cards array must be created in this order (Clubs 2-14, Diamonds 2-14, Hearts 2-14, Spades 2-14). The seed parameter should be stored in the instance field for the seed. HINT: Use Card.CLUBS, Card.LOWEST_VALUE, etc., in this constructor.
+    //This is the constructor of the Deck class. You must first initialize your array of Card objects to hold 52 cards using your class constant CARDS_IN_DECK. After your array is initialized, you must go through the array one element at a time and actually create a Card object. All cards must be created (values 2-14 for each of the four suits), and there must not be any duplicates. The cards array must be created in this order (Clubs 2-14, Diamonds 2-14, Hearts 2-14, Spades 2-14). The seed parameter should be stored in the instance field for the seed. HINT: Use Card CLUBS, Card LOWEST_VALUE, etc., in this constructor.
 
     public Deck(int seed) {
         cards = new Card[CARDS_IN_DECK];
         next = 0;
         this.seed = seed;
         Random rand = new Random(seed);
+        char[] suits = {Card.CLUBS, Card.DIAMONDS, Card.HEARTS, Card.SPADES};
         for (int i = 0; i < CARDS_IN_DECK; i++) {
             int value = rand.nextInt(13) + 2;
-            char suit = (char) (rand.nextInt(4) + 'a');
+            char suit = suits[rand.nextInt(4)];
             cards[i] = new Card(value, suit);
+
         }
     }
 
@@ -48,14 +50,27 @@ public class Deck {
         }
     }
 
-    //This method returns the next card in the deck based on the next instance field, which knows the position within the array where the next card to be dealt is located. Before returning the card, make sure you update this value so that the next time the method is called, the next card in the deck will be returned (increase it by 1).
-    // Throw an IllegalStateException with the message “No more cards”, if next is greater than or equal to CARDS_IN_DECK when the method is called.
+    //This method returns the next card in the deck based on the next instance field, which knows the position within the array where the next card to be dealt is located. Before returning the card, make sure you update this value so that the next time the method is called, the next card in the deck will be returned (increase it by 1). Throw an IllegalStateException with the message “No more cards”, if next is greater than or equal to CARDS_IN_DECK when the method is called.
+    //    private int next;
+    // /**
+    // * Tests that the first two cards of the deck are correct after it is constructed
+    // */
+   // @Test
+    //public void testNextCard() {
+    //    assertEquals(new Card(2,'c'), deck.nextCard(), "next card after constructed");
+    //    assertEquals(new Card(3, 'c'), deck.nextCard(), "second card");
+    //}
+
+
     public Card nextCard() {
         if (next >= CARDS_IN_DECK) {
             throw new IllegalStateException("No more cards");
         }
         return cards[next++];
+
     }
+
+
 
     //This method returns whether this Deck and o are equal. If o is not a Deck, the method should return false. Decks are considered equal if they have the same cards array (array of cards in the same order), the same integer value for the index of the next card, and the same seed.
     public boolean equals(Object o) {
@@ -78,10 +93,16 @@ public class Deck {
     //card 50: c9
     //card 51: c2
 
-
-
-
-
-
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < cards.length; i++) {
+            sb.append("card ");
+            sb.append(i);
+            sb.append(": ");
+            sb.append(cards[i].toString());
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 
 }

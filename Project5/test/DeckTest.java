@@ -1,10 +1,10 @@
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * Tests Deck class
- *
  * @author Suzanne Balik
  */
 public class DeckTest {
@@ -56,12 +56,11 @@ public class DeckTest {
     }
 
     /**
-     * Tests that the first two cards of the deck are correct after it is
-     * constructed
+     * Tests that the first two cards of the deck are correct after it is constructed
      */
     @Test
     public void testNextCard() {
-        assertEquals(new Card(2, 'c'), deck.nextCard(), "next card after constructed");
+        assertEquals(new Card(2,'c'), deck.nextCard(), "next card after constructed");
         assertEquals(new Card(3, 'c'), deck.nextCard(), "second card");
     }
 
@@ -96,11 +95,11 @@ public class DeckTest {
     @Test
     public void testExceptions() {
         // Testing nextCard() no cards
-        for (int i = 1; i <= 52; i++) {
+        for (int i = 1; i <= 52; i++ ) {
             deck.nextCard();
         }
         Exception exception = assertThrows(IllegalStateException.class,
-                () -> deck.nextCard(), "nextCard() no more cards");
+            () -> deck.nextCard(), "nextCard() no more cards");
         assertEquals("No more cards", exception.getMessage(),
                 "nextCard() no more cards message");
     }
