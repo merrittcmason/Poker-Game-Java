@@ -71,13 +71,21 @@ https://github.com/user-attachments/assets/2b2d6e77-8534-4974-a121-2cc6e55ea9a8
 ## How to Compile and Run
 
 ### Requirements
-- Java Development Kit (JDK) 8 or later
+Java Development Kit (JDK) 8 or later
+
+```java -version```
 
 ### Compilation
 Navigate to your project directory and compile the Java files.
 
+```cd /path/to/your/project```
+
+```javac *.java```
+
 ### Running the Program
 After compiling, launch the game by running the main GUI class.
+
+```java VideoPokerGUI```
 
 Ensure that any required card image resources are correctly placed in the classpath (for example, in a folder named `cards` inside your project directory).
 
