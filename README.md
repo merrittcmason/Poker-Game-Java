@@ -24,8 +24,6 @@ Java Video Poker is a graphical simulation of a classic video poker machine. The
   - No Pair
 - **Point System:** Start with a fixed number of points; each new game costs a few points while successful hands award bonus points.
 
----
-
 ## How It Works
 
 1. **Starting a Game:**
@@ -66,8 +64,6 @@ https://github.com/user-attachments/assets/2b2d6e77-8534-4974-a121-2cc6e55ea9a8
 - **VideoPokerGUI.java:**  
   Provides a graphical user interface using Java Swing. It displays cards (using images), buttons for game actions, and text fields for points and hand descriptions.
 
----
-
 ## How to Compile and Run
 
 ### Requirements
@@ -89,8 +85,6 @@ After compiling, launch the game by running the main GUI class.
 
 Ensure that any required card image resources are correctly placed in the classpath (for example, in a folder named `cards` inside your project directory).
 
----
-
 ## Usage Tips
 
 - **New Game:**  
@@ -104,8 +98,6 @@ Ensure that any required card image resources are correctly placed in the classp
 
 - **Quit:**  
   Use the “Quit” button to exit the game.
-
----
 
 ## Troubleshooting
 
